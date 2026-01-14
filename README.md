@@ -2,6 +2,9 @@
 
 A demo application showcasing improved UX for AI inference job submission with progressive status updates and streaming results.
 
+<!-- Replace with GitHub-hosted URL after uploading via GitHub UI -->
+https://github.com/user-attachments/assets/subconscious.mov
+
 ## Quick Start
 
 ```bash
