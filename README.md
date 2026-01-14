@@ -2,8 +2,6 @@
 
 A demo application showcasing improved UX for AI inference job submission with progressive status updates and streaming results.
 
-[Watch Demo Video](./subconscious.mov)
-
 ## Quick Start
 
 ```bash
