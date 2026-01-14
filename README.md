@@ -72,6 +72,91 @@ npm run dev
 - `GET /jobs/{job_id}/stream` - SSE stream for real-time updates
 - `GET /health` - Health check
 
+## Running with Docker
+
+### Start all services
+
+```bash
+docker-compose up --build
+```
+
+This starts all four services (frontend, api, worker, redis). Open http://localhost:5173 to use the app.
+
+### Run only backend services (recommended for frontend development)
+
+```bash
+docker-compose up redis api worker
+```
+
+Then run the frontend locally for faster hot reloading:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+### Rebuild a specific service
+
+```bash
+docker-compose up --build api
+```
+
+### View logs
+
+```bash
+docker-compose logs -f api worker
+```
+
+### Stop all services
+
+```bash
+docker-compose down
+```
+
+## Testing
+
+### API Tests
+
+```bash
+cd api
+pip install -r requirements.txt
+python -m pytest test_main.py -v
+```
+
+Tests cover all API endpoints:
+- `POST /jobs` - Job creation, queue insertion, validation
+- `GET /jobs` - List jobs, ordering, pagination
+- `GET /jobs/{id}` - Get job, not found, error states
+- `GET /jobs/{id}/stream` - SSE streaming (integration test)
+- `GET /health` - Health check
+
+## Frontend Build
+
+### Development server
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+### Production build
+
+```bash
+cd frontend
+npm run build
+```
+
+Build output is written to `frontend/dist/`.
+
+### Type checking only
+
+```bash
+cd frontend
+npx tsc -b
+```
+
 ## Environment Variables
 
 ### Frontend
